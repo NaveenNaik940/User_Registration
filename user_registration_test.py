@@ -71,10 +71,10 @@ class TestNameValidation(unittest.TestCase):
             None
         """        
         #Test case validation for Password
-        self.assertTrue(validate_password("sjksAndj1"))
-        self.assertTrue(validate_password("Nahduiisk1"))
-        self.assertFalse(validate_password("87djdsk"))
-        self.assertFalse(validate_password("askkendA"))
+        self.assertTrue(validate_password("sjksAndj1%"))
+        self.assertTrue(validate_password("Nahduiisk1["))
+        self.assertFalse(validate_password("87djdskA"))
+        self.assertFalse(validate_password("askkendA]%"))
         
 
         
