@@ -4,26 +4,26 @@
 @Date: 2024-08-16
 @Last Modified by: Naveen Madev Naik
 @Last Modified time: 2024-08-16
-@Title: Python program to validate first name,last name and email of user by unit testing
+@Title: Python program to validate first, last name, email and mobile number of user by unit testing
 
 """
 
 import unittest
-from user_registration import (validate_name,validate_email)
+from user_registration import (validate_name,validate_email,validate_mobile_number)
 
 class TestNameValidation(unittest.TestCase):
 
-    def validate_test_case(self):
+    def test_case(self):
         
         """
         Description:
-            Checks if the first,last name and email is valid according to the validation rule.
+            Checks if the first,last name,email and mobile number is valid according to the validation rule.
 
         Parameter:
             self:instance of the class
 
         Return:
-            bool:Returns True for a valid name.
+            bool
         """
         
         #Test case validation for first name
