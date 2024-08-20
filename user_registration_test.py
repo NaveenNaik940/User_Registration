@@ -52,10 +52,29 @@ class TestNameValidation(unittest.TestCase):
             None
         """
         #Test case validation for email
-        self.assertTrue(validate_email("abc.xyz@bl.co.in"))
-        self.assertTrue(validate_email("naveen@domain.co"))
-        self.assertFalse(validate_email("naveen@blco"))
-        self.assertFalse(validate_email("naveec@bl.co.in."))
+        self.assertTrue(validate_email("abc@yahoo.com"))
+        self.assertTrue(validate_email("abc-100@yahoo.com"))
+        self.assertTrue(validate_email("abc.100@yahoo.com"))
+        self.assertTrue(validate_email("abc111@abc.com"))
+        self.assertTrue(validate_email("abc111@abc.net"))
+        self.assertTrue(validate_email("abc.100@abc.com.au"))
+        self.assertTrue(validate_email("abc@1.com"))
+        self.assertTrue(validate_email("abc@gmail.com.com"))
+        self.assertTrue(validate_email("abc+100@gmail.com"))
+
+        self.assertFalse(validate_email("abc"))
+        self.assertFalse(validate_email("abc@.com.my"))
+        self.assertFalse(validate_email("abc123@gmail.a"))
+        self.assertFalse(validate_email("abc123@.com"))
+        self.assertFalse(validate_email("abc123@.com.com"))
+        self.assertFalse(validate_email(".abc@abc.com"))
+        self.assertFalse(validate_email("abc()*@gmail.com"))
+        self.assertFalse(validate_email("abc@%*.com"))
+        self.assertFalse(validate_email("abc..2002@gmail.com"))
+        self.assertFalse(validate_email("abc.@gmail.com"))
+        self.assertFalse(validate_email("abc@abc@gmail.com"))
+        self.assertFalse(validate_email("abc@gmail.com.1a"))
+        self.assertFalse(validate_email("abc@gmail.com.aa.au"))
 
 
     def test_password(self):
