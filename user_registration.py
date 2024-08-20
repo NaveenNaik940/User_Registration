@@ -81,8 +81,9 @@ def validate_password(password: str):
     #Rule
     #1.Password must have 8 character
     #2.Password must have 1 uppercase letter
+    #3.Password must have 1 numerical
 
-    pattern = r'(?=.*[A-Z]).{8,}$'
+    pattern = r'(?=.*[A-Z])(?=.*[0-9]).{8,}$'
     return re.search(pattern, password)
 
 
@@ -92,7 +93,7 @@ def main():
     last_name=input("Enter Last name (first letter should be upper case )")
     email=input("Enter email id:(eg:abc@gmail.com) ")
     mobile_number=input("Enter mobile number(eg:91 8537865438) ")
-    password=input("Enter atleast 8 character password with one uppercase letter: ")
+    password=input("Enter atleast 8 character password with one uppercase letter and numerical number: ")
 
     if (validate_name(first_name) and validate_name(last_name) and 
         validate_email(email) and validate_mobile_number(mobile_number) and validate_password(password)):
