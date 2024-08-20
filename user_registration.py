@@ -3,7 +3,7 @@
 @Date: 2024-08-16
 @Last Modified by: Naveen Madev Naik
 @Last Modified time: 2024-08-16
-@Title: Python program to check user entered first, last name, email and  is valid
+@Title: Python program to check user entered first, last name,email,mobile number and password is valid
 
 """
 
@@ -65,15 +65,37 @@ def validate_mobile_number(mobile_number: str):
     return re.search(pattern, mobile_number)
 
 
+def validate_password(password: str):
+
+    """
+    Description:
+        Validates the password according to the given rule.
+
+    Parameter:
+        password(str): The password to validate.
+
+    Return:
+        object
+    """
+
+
+    pattern = r'^.{8,}$'
+    return re.search(pattern, password)
+
+
 def main():
 
     first_name = input("Enter first name (first letter should be upper case): ")
     last_name=input("Enter Last name (first letter should be upper case )")
     email=input("Enter email id:(eg:abc@gmail.com) ")
     mobile_number=input("Enter mobile number(eg:91 8537865438) ")
+    password=input("Enter atleast 8 character password: ")
 
-    if validate_name(first_name) and validate_name(last_name) and validate_email(email) and validate_mobile_number(mobile_number):
-        logger.info("First Name ,Last Name, Email and Mobile Number is valid")
+    if (validate_name(first_name) and validate_name(last_name) and 
+        validate_email(email) and validate_mobile_number(mobile_number) and validate_password(password)):
+
+        logger.info("First Name ,Last Name, Email ,Mobile Number and password is valid")
+        
     else:
         if not validate_name(first_name):
             logger.info("First name is invalid")
@@ -82,7 +104,9 @@ def main():
         if not validate_email(email):  
             logger.info("Email is invalid")  
         if not validate_mobile_number(mobile_number):
-            logger.info("Mobile number is invalid")      
+            logger.info("Mobile number is invalid")   
+        if not validate_password(password):
+            logger.info("Password is incorrect")       
 
 
 if __name__ == "__main__":
