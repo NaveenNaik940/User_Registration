@@ -4,12 +4,12 @@
 @Date: 2024-08-16
 @Last Modified by: Naveen Madev Naik
 @Last Modified time: 2024-08-16
-@Title: Python program to validate first name of user
+@Title: Python program to validate first name and last name of user
 
 """
 
 import unittest
-from user_registration import validate_firstName
+from user_registration import validate_name
 
 class TestNameValidation(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestNameValidation(unittest.TestCase):
         
         """
         Description:
-            Checks if the name is valid according to the validation rule.
+            Checks if the first and last name is valid according to the validation rule.
 
         Parameter:
             self:instance of the class
@@ -26,11 +26,17 @@ class TestNameValidation(unittest.TestCase):
             bool:Returns True for a valid name.
         """
         
-        
-        self.assertTrue(validate_firstName("Naveen"))
-        self.assertTrue(validate_firstName("Girish"))
-        self.assertFalse(validate_firstName("Ho"))
-        self.assertFalse(validate_firstName("Mi"))
+        #Test case validation for first name
+        self.assertTrue(validate_name("Naveen"))
+        self.assertTrue(validate_name("Girish"))
+        self.assertFalse(validate_name("auhsh"))
+        self.assertFalse(validate_name("sja"))
+
+        #Test case validation for last name
+        self.assertTrue(validate_name("Naik"))
+        self.assertTrue(validate_name("Nekar"))
+        self.assertFalse(validate_name("hjdj"))
+        self.assertFalse(validate_name("isdh"))
 
         
 if __name__ == "__main__":
