@@ -8,30 +8,24 @@
 
 """
 
-import unittest
+import pytest
 from user_registration import validate_firstName
 
-class TestNameValidation(unittest.TestCase):
 
-    def validate_test_case(self):
+def test_validate_firstName():
         
-        """
-        Description:
-            Checks if the name is valid according to the validation rule.
+    """
+    Description:
+        Checks if the name is valid according to the validation rule.
 
-        Parameter:
-            self:instance of the class
+    Parameter:
+        None
 
-        Return:
-            bool:Returns True for a valid name.
-        """
+    Return:
+        None
+    """
         
-        
-        self.assertTrue(validate_firstName("Naveen"))
-        self.assertTrue(validate_firstName("Girish"))
-        self.assertFalse(validate_firstName("Ho"))
-        self.assertFalse(validate_firstName("Mi"))
-
-        
-if __name__ == "__main__":
-    unittest.main()
+    assert validate_firstName("Naveen") is not None
+    assert validate_firstName("Girish") is not None
+    assert validate_firstName("Ho") is None  
+    assert validate_firstName("Mi") is None 
