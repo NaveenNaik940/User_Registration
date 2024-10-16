@@ -7,43 +7,64 @@
 @Title: Python program to validate first name,last name and email of user by unit testing
 
 """
-
-import unittest
-from user_registration import (validate_name,validate_email)
-
-class TestNameValidation(unittest.TestCase):
-
-    def validate_test_case(self):
         
-        """
-        Description:
-            Checks if the first,last name and email is valid according to the validation rule.
+import pytest
+from user_registration import validate_name, validate_email
 
-        Parameter:
-            self:instance of the class
+def test_validate_first_name():
 
-        Return:
-            bool:Returns True for a valid name.
-        """
-        
-        #Test case validation for first name
-        self.assertTrue(validate_name("Naveen"))
-        self.assertTrue(validate_name("Girish"))
-        self.assertFalse(validate_name("auhsh"))
-        self.assertFalse(validate_name("sja"))
+    """
+    Description:
+        Checks if the first is valid according to the validation rule.
 
-        #Test case validation for last name
-        self.assertTrue(validate_name("Naik"))
-        self.assertTrue(validate_name("Nekar"))
-        self.assertFalse(validate_name("hjdj"))
-        self.assertFalse(validate_name("isdh"))
+    Parameter:
+        None
 
-        #Test case validation for email
-        self.assertTrue(validate_email("abc.xyz@bl.co.in"))
-        self.assertTrue(validate_email("naveen@domain.co"))
-        self.assertFalse(validate_email("naveen@blco"))
-        self.assertFalse(validate_email("naveec@bl.co.in."))
+    Return:
+        None
+    """
 
-        
-if __name__ == "__main__":
-    unittest.main()
+
+    assert validate_name("Naveen") is not None
+    assert validate_name("Girish") is not None
+    assert validate_name("auhsh") is None
+    assert validate_name("sja") is None
+
+
+def test_validate_last_name():
+
+    """
+    Description:
+        Checks if the last is valid according to the validation rule.
+
+    Parameter:
+        None
+
+    Return:
+        None
+    """
+
+
+    assert validate_name("Naik") is not None
+    assert validate_name("Nekar") is not None
+    assert validate_name("hjdj") is None
+    assert validate_name("isdh") is None
+
+
+def test_validate_email():
+
+    """
+    Description:
+        Checks if email is valid according to the validation rule.
+
+    Parameter:
+        None
+
+    Return:
+        None
+    """
+
+    assert validate_email("abc.xyz@bl.co.in") is not None
+    assert validate_email("naveen@domain.co") is not None
+    assert validate_email("naveen@blco") is None
+    assert validate_email("naveec@bl.co.in.") is None
