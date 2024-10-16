@@ -8,36 +8,44 @@
 
 """
 
-import unittest
+import pytest
 from user_registration import validate_name
 
-class TestNameValidation(unittest.TestCase):
 
-    def validate_test_case(self):
-        
-        """
-        Description:
-            Checks if the first and last name is valid according to the validation rule.
 
-        Parameter:
-            self:instance of the class
+def test_validate_first_name():
+    
+    """
+    Description:
+        Checks if the first is valid according to the validation rule.
 
-        Return:
-            bool:Returns True for a valid name.
-        """
-        
-        #Test case validation for first name
-        self.assertTrue(validate_name("Naveen"))
-        self.assertTrue(validate_name("Girish"))
-        self.assertFalse(validate_name("auhsh"))
-        self.assertFalse(validate_name("sja"))
+    Parameter:
+        None
 
-        #Test case validation for last name
-        self.assertTrue(validate_name("Naik"))
-        self.assertTrue(validate_name("Nekar"))
-        self.assertFalse(validate_name("hjdj"))
-        self.assertFalse(validate_name("isdh"))
+    Return:
+        None
+    """
+    
+    assert validate_name("Naveen") is not None
+    assert validate_name("Girish") is not None
+    assert validate_name("auhsh") is None
+    assert validate_name("sja") is None
 
-        
-if __name__ == "__main__":
-    unittest.main()
+
+
+def test_validate_last_name():
+
+    """
+    Description:
+        Checks if the last name is valid according to the validation rule.
+
+    Parameter:
+        None
+
+    Return:
+        None
+    """           
+    assert validate_name("Naik") is not None
+    assert validate_name("Nekar") is not None
+    assert validate_name("hjdj") is None
+    assert validate_name("isdh") is None
